@@ -9,6 +9,7 @@
         <ul>               
         @foreach($result as $res)
         {{-- */ $anx = $res->validations->anexo22; /*--}} 
+        <p>Esto es un parrafo y extraño mis audifonos</p>
             <li>
             {{ $anx->a22_name }}
             {{ $anx->infractions->inf_description }}
