@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
+        <h1>HOLaaaaa</h1>
         <ul>               
         @foreach($result as $res)
         {{-- */ $anx = $res->validations->anexo22; /*--}} 
