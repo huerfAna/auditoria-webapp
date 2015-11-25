@@ -1,0 +1,592 @@
+@import 'normalize.styl'
+@import 'icons.styl'
+@import 'grid.styl'
+
+color-primary = #009688
+color-success = #4caf50
+color-warning = #ff5722
+color-info = #03a9f4
+color-danger =  #f44336
+
+*
+	box-sizing border-box
+	margin 0
+	padding 0
+
+body
+	color #34495e
+	font-family 'Ubuntu', sans-serif
+	font-size 16px
+	background #f1f1f1
+	
+/*=================================================================================
+Header
+=================================================================================*/
+
+header 
+	background white
+	border-bottom 1px solid #e1e1e1
+	height 55px
+	padding 0
+	position fixed
+	top 0 
+	left 0
+	width 100%
+	z-index 9999
+	& img
+		height 55px
+		width 55px
+		
+/*=================================================================================
+Sidebar
+=================================================================================*/
+
+.sidebar
+	background white
+	border-right 1px solid #e1e1e1
+	height 100%
+	left 0 
+	position fixed
+	transition width 0.5 linear
+	top 55px
+	width 55px
+	z-index 9999
+	& ul
+		list-style none
+		& a 
+			color #FF6600
+			font-size 1.3rem
+			font-weight bold
+			text-decoration none
+		& li
+			border-bottom 1px solid #e1e1e1
+			height 55px
+			line-height 55px
+			padding-left 17px
+			transition all 0.3s linear
+			& span
+				font-size 1rem
+				margin-left 10px
+				vertical-align middle
+				margin-top -6px
+				display inline-block
+				font-weight 300
+				display none
+			&:hover
+				background #FF6600
+				color white
+			
+/*=================================================================================
+Containers
+=================================================================================*/
+
+.container 
+	margin 80px 0
+	min-height 600px
+
+.content
+	margin 0 auto
+	max-width 1000px
+			
+/*=================================================================================
+Headers
+=================================================================================*/
+h1
+	border-bottom 1px solid #e1e1e1
+	color #FF6600
+	font-size 3rem
+	letter-spacing -0.2rem
+	
+h2
+	font-size 1.6rem
+	font-weight 300
+	letter-spacing -0.1rem
+
+h3 
+	color #FF6600
+	font-size 1.2rem
+	letter-spacing -0.1rem
+/*=================================================================================
+Footer
+=================================================================================*/
+
+footer 
+	background white
+	border-top 1px solid #e1e1e1
+	padding 40px 0
+	width 100%
+	& .footer-brand
+		border-bottom 1px solid #e1e1e1
+		& img
+			height 60px
+			margin 5px 0
+			width 60px
+	& a 
+		color  #34495e
+		line-height normal
+	& .list-main
+		list-style none
+		& li 
+			display inline-block
+			font-size 0.85rem
+			font-weight 500
+			letter-spacing: -0.2px;
+			margin-right 15px
+	& .list-second
+		list-style none
+		& li 
+			display inline-block
+			font-size 0.7rem
+			font-weight bold
+			letter-spacing: -0.2px;
+			margin-right 20px
+
+/*=================================================================================
+Helper Classes
+=================================================================================*/
+
+section
+	margin-bottom 2rem
+	
+a 
+	color #FF6600
+	line-height 40px
+	font-weight 500
+	
+p 
+	font-size 0.85rem
+	margin 10px 0 18px 0
+	
+.code 
+	margin 10px auto
+	font-size 0.8rem
+	padding 5px 12px
+
+.center-text
+	text-align center 
+	
+.right-text
+	text-align right
+	
+.block
+	display block
+	margin 0.6rem 0
+	
+.tag-description
+	font-size 0.7rem
+	
+input[type="button"],
+input[type="submit"],
+.btn
+	background white
+	border 1px solid transparent
+	border-radius 2px
+	box-shadow  1px 2px 5px rgba(0,0,0,0.2)
+	color #34495e
+	font-size 1rem
+	font-weight bold
+	margin 10px 0 0 0
+	padding 5px 15px
+	text-decoration none
+	transition all 0.3s linear
+	&:hover
+		box-shadow  1px 5px 12px rgba(0,0,0,0.2)
+	
+.btn-primary
+.btn-success
+.btn-warning
+.btn-info
+.btn-danger
+	color white
+
+input[type="button"],
+input[type="submit"],		
+.btn-primary
+	background color-primary
+
+.btn-success
+	background color-success
+
+.btn-warning
+	background color-warning
+
+.btn-info
+	background color-info
+
+.btn-danger
+	background color-danger
+
+.round
+	border-radius 50%
+	font-size 2rem
+	line-height normal
+	height 65px
+	width 65px
+	float left
+	padding-top 15px
+	padding-left 17px
+	
+.notification
+	background #34495e
+	color white
+	margin 5px auto
+	padding 5px 12px
+	border-radius 2px
+	& .target-close
+		float right
+		&:hover
+			cursor pointer
+			
+.notification-success
+.notification-danger
+.notification-warning
+	color rgba(0,0,0,0.6)
+	font-weight bold
+			
+.notification-success
+	background rgba(color-success, 0.8)
+
+.notification-danger
+	background rgba(color-danger, 0.8)
+
+.notification-warning
+	background rgba(color-warning, 0.8)
+
+.paragraph
+	background white
+	border-radius 2px
+	border-left 5px solid #34495e
+	padding 12px 20px
+	
+.panel 
+	background white
+	border 1px solid rgba(0,0,0,0.2)
+	margin 6px
+	& .panel-body
+		font-size 0.8rem
+		padding 8px 18px
+	& .panel-footer
+		border-top 1px solid rgba(0,0,0,0.2)
+		display flex
+		justify-content space-between
+		& .divider
+			text-align center
+			border-right 1px solid rgba(0,0,0,0.2)
+			&:last-child
+				border-right none
+				
+.loader
+	position relative
+	display block
+	margin auto
+	padding 0
+	width 220px
+	height 15px 
+	& i 
+		position relative
+		display inline-block
+		margin 0 8px 
+		width 10px
+		height 30px
+		border-radius 5px
+		border solid color-info
+		border-width 0 1px 0 1px
+		background rgba(color-info, 0.8)
+		animation tilt infinite 5s cubic-bezier(0.955, -0.010, 1.000, 1.000)
+		transform-origin 100% 100%
+		&:before
+			content ''
+			position absolute
+			z-index -1
+			bottom 0
+			display block 
+			width 5px 
+			height 5px
+			background transparent
+			box-shadow 0 2px rgba(0,0,0,0.3)
+			animation stretch infinite 5s cubic-bezier(0.955, -0.010, 1.000, 1.000)
+			opacity 0
+			transform-origin 0% 0%
+		&:nth-child(2),
+		&:nth-child(2)::before
+			animation-delay .3s
+			background rgba(color-primary, 0.8)
+			border solid color-primary
+			border-width 0 1px 0 1px
+		&:nth-child(3),
+		&:nth-child(3)::before
+			animation-delay .6s
+			background rgba(color-danger, 0.8)
+			border solid color-danger
+			border-width 0 1px 0 1px
+		&:nth-child(4),
+		&:nth-child(4)::before
+			animation-delay .9s
+			background rgba(color-success, 0.8)
+			border solid color-success
+			border-width 0 1px 0 1px
+		&:nth-child(5),
+		&:nth-child(5)::before
+			animation-delay 1.2s
+			background rgba(#34495e, 0.8)
+			border solid #34495e
+			border-width 0 1px 0 1px
+		&:last-of-type
+			animation-name tilt-last
+		&:last-of-type:before
+			animation-name stretch-last
+
+@keyframes tilt
+	10% 
+		transform: rotate(70deg) 
+	60% 
+		transform: rotate(70deg) 
+	70% 
+		transform: rotate(0deg) 
+		
+@keyframes tilt-last
+	10%
+		transform: rotate(90deg)
+	60%
+		transform: rotate(90deg)
+	70%
+		transform: rotate(0deg)
+		
+@keyframes strech
+	10%
+		transform: rotate(-70deg)
+		width: 10px
+		opacity: 1
+		left: 0px
+		bottom: -1px
+	60%
+		transform: rotate(-70deg)
+		width: 10px 
+		opacity: 1 
+	70%
+		transform: rotate(0deg)
+		width: 5px
+		height: 5px 
+		opacity: 0
+		
+@keyframes strech-last
+	10%
+		transform: rotate(-90deg)
+		width: 10px 
+		height: 2px
+		opacity: .5
+		left: 3px
+		bottom: -1px
+	60%
+		transform: rotate(-90deg)
+		width: 10px
+		height: 2px
+		opacity: .5
+	70%
+		transform: rotate(0deg)
+		width: 5px 
+		height: 5px
+		opacity: 0
+		
+.collection
+	background white
+	border 1px solid rgba(0,0,0,0.2)
+	border-radius 2px
+	list-style none
+	padding-top 10px
+	padding-bottom 20px
+	& .item-collection
+		padding 10px 20px
+		& a 
+			line-height 1rem
+		& p 
+			margin 0
+			
+primary = #303F9F
+light-primary = #BBDEFB
+white-form = #f2f2f2
+divider-color = #b6b6b6
+
+.form
+	background white 
+	box-shadow 0px 0px 3px grey
+	color white-form
+	padding 40px
+	& .input-group
+		position relative
+		margin-bottom 32px
+		& input[type="text"],
+		& input[type="email"],
+		& input[type="password"]
+			color primary
+			width 100%
+			outline none
+			padding 15px
+			background none
+			border none
+			border-bottom 2px solid light-primary
+			&:focus,
+			&:active
+				outline none
+				border-bottom 2px solid primary
+			&.error
+				border-bottom 2px solid color-danger
+				& + label
+					color color-danger
+		& label
+			color primary
+		& .label
+			position absolute
+			top 16px
+			left 0px
+			font-size 16px
+			line-height 16px
+			margin-left 16px
+			transition all .3s ease
+			&.active
+				top -12px
+				font-size 12px
+				line-height 12px 
+				color divider-color
+				
+		&.checkbox label
+		&.radio label
+			display inline-block
+			cursor pointer
+			color primary
+			position relative
+			padding 5px 15px 5px 51px
+			font-size 1rem
+			border-radius 3px
+			transition all 0.3s ease
+			&:hover
+				background rgba(light-primary, 1)
+			&:before
+				content: ""
+				display inline-block
+				width 17px
+				height 17px
+				position absolute
+				left 15px
+				top 8px
+				border-radius 50%
+				background none 
+				border 2px solid primary
+		&.error
+			label
+				color color-danger
+				&:hover
+					background rgba(color-danger, .2)
+				&:before
+					border 2px solid color-danger
+		&.radio
+			input[type="radio"]
+				display none
+				&:checked + label:before
+					display none
+				&:checked + label
+					padding 5px 15px
+					background primary
+					border-radius 2px
+					color white
+	input[type="submit"]
+		background primary
+		border-radius 4px
+		cursor pointer
+		border 2px solid white-form
+		color white 
+		display inline-block
+		padding 15px
+		width 100%	
+		font-family 'Ubuntu'
+		transition all 0.3s ease
+		&:hover
+			background #1976d2
+
+.checkbox label
+	display inline-block
+	cursor pointer
+	color primary
+	position relative
+	padding 5px 15px 5px 51px
+	font-size 1rem
+	border-radius 3px
+	transition all 0.3s ease
+	&:hover
+		background rgba(light-primary, 1)
+	&:before
+		content: ""
+		display inline-block
+		width 17px
+		height 17px
+		position absolute
+		left 15px
+		top 8px
+		border-radius 50%
+		background none 
+		border 2px solid primary
+.checkbox
+	label:before
+		border-radius 3px
+	input[type="checkbox"]
+		display none
+		&:checked + label:before
+			display none
+		&:checked + label
+			padding 5px 15px
+			background primary
+			border-radius 2px
+			color white
+
+.show-grid
+	background rgba(#FF6600, 0.3)
+	border-radius 3px
+	font-weight bold
+	margin 2px
+	padding 2px 10px
+	& span 
+		font-size 0.7rem
+		font-weight normal
+		
+.show-icon
+	font-size 2rem
+	display block
+	margin-top 8px
+	
+.coding
+	background #34494e
+	border-radius 5px
+	color white
+	overflow-x hidden
+	padding 15px 30px
+	& span
+		font-family 'Play'
+		font-size 0.8rem
+		color #71D4B7
+
+.column-side
+	margin 0 10px
+		
+
+@media screen and (max-width: 800px)
+	
+	.sidebar 
+		left -56px
+		
+	.content
+		max-width 96%
+		
+	footer
+		text-align center
+		& .footer-brand
+			display none
+		& .list-main
+			display none
+		& .list-second
+			& li 
+				border-bottom 1px solid rgba(0,0,0,0.2)
+				display block
+				font-size 0.9rem
+				padding 10px 0
+				&:last-child
+					border-bottom none
