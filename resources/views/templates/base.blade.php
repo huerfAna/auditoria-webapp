@@ -32,6 +32,12 @@
 		</div>
 	</div>
 
+	<div class="canvas">
+		<div class="content-help animated fadeInUp">
+			@yield('help')
+		</div>
+	</div>
+
 	<footer>
 		<div class="content">
 			<div class="footer-brand">
@@ -63,10 +69,12 @@
 			}
 		}, 300);
 	});
+
 	$(".sidebar").mouseleave(function(){
 		$(this).animate({ "width": "55px" }, 300);
 		$(".sidebar a li span").hide();
 	});
+
 	var interval = 1;
 	$("#logo").click(function(){
 		if(interval==1){
@@ -85,9 +93,20 @@
 			interval= 1;
 		}
 	});
+
 	$(".target-close").click(function(){
 		$(this).parent().fadeOut("slow");
 	});
+
+	$(".target-help").click(function(){
+		$(".canvas").show();
+		$("body").css({ "overflow": "hidden" });
+	});
+
+	$(".help-close").click(function(){
+		$(".canvas").hide();
+		$("body").css({ "overflow": "auto" });
+	})
 </script>
 @yield('scripts')
 </body>

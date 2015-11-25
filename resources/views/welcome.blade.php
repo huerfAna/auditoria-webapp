@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<h1>Auditoría</h1>       
+<h1>Auditoría <a class="target-help"><i class="icon icon-speechbubble34"></i></a></h1>       
 
 @if(Session::get('error'))
     <p class="notification">
@@ -145,8 +145,19 @@
           </div>
         </div>
       </script>
+
     </div>   
 </section>
+@endsection
+
+@section('help')
+<div class="header-help">
+    <strong>Proceso de Auditoría</strong>
+    <i class="icon icon-cancel29 help-close"></i>
+</div>
+<div class="body-help">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At eveniet placeat quod, qui consequuntur. Temporibus quia esse impedit inventore soluta voluptatibus necessitatibus natus, tempora vero ea eveniet eum molestiae consequatur.
+</div>
 @endsection
 
 @section('scripts')
