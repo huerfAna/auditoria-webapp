@@ -20,3 +20,15 @@ Route::post('/auditar', 'AuditController@run');
 Route::get('resultados', ['as' => 'resultados', 'uses' => 'AuditController@getResult']);
 Route::get('/crear/validacion', 'ValidationController@newValidation');
 Route::post('catalogos', 'ValidationController@getTable');
+
+/*
+|---------------------------------------------------------------------
+| Branding Routes
+|---------------------------------------------------------------------
+|
+|
+*/
+
+Route::get('creators', function(){
+	return view('brand&policy.creators');
+});
