@@ -19,6 +19,7 @@ class AuditController extends Controller
      *
      * @return Response
      */
+
     public function run()
     {
         $fechaini = Input::get('fechaini');
@@ -67,5 +68,10 @@ class AuditController extends Controller
         {
            return redirect()->back()->with('error', 'No se encontraron referencias.');
         }             
+    }
+    public function getResult()
+    {
+        $resultado = Result::all();
+        return view('results')->with('result', $resultado);    
     }
 }

@@ -5,10 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /** 
    ******************
-   * Informacion de Encabezado (optr01)
+   * Validaciones
    ******************
  **/
-class Encabezado extends Model  {
+class Attribute extends Model  {
 
 	
 	/**
@@ -16,8 +16,7 @@ class Encabezado extends Model  {
 	 *
 	 * @var string
 	 */
-	protected $connection = 'users';
-	protected $table = 'optr01';
+	protected $table = 'aud_attributes';
 
 
 	/**
@@ -27,7 +26,9 @@ class Encabezado extends Model  {
 	 */
 	protected  $guarded = ['id','created_at','updated_at'];
 
+
+ 	public function validations()
+    {
+        return $this->hasMany('App\Validation');
+    }
 }
-
-
- 
