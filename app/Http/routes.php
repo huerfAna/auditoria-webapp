@@ -17,9 +17,6 @@ Route::get('/', function () {
 
 
 Route::post('/auditar', 'AuditController@run');
-Route::get('resultados', ['as' => 'resultados', function(App\Result $result)
-{		
-	$resultado = $result::all();
-	return view('results')->with('result', $resultado);
-	
-}]);
+Route::get('resultados', ['as' => 'resultados', 'uses' => 'AuditController@getResult']);
+Route::get('/crear/validacion', 'ValidationController@newValidation');
+Route::post('catalogos', 'ValidationController@getTable');
