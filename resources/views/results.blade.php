@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Resultados de la Auditoría <a class="target-help"><i class="icon icon-speechbubble34"></i></a></h1> 
-    <section>
+    <section class="row">
         @foreach($result as $res)
         {{-- */ $anx = $res->validations->anexo22; /*--}} 
             <div class="medium-6 columns">
@@ -22,11 +22,5 @@
 @endsection
 
 @section('help')
-<div class="header-help">
-    <strong>¿Como interpreto los resultados?</strong>
-    <i class="icon icon-cancel29 help-close"></i>
-</div>
-<div class="body-help">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptates aliquam eveniet quasi vero sapiente, deserunt esse vel. Eum architecto omnis, nostrum nulla esse suscipit sapiente reiciendis similique cumque aut!
-</div>
+    @include('partials.help-results')
 @endsection
