@@ -88,6 +88,33 @@ Containers
 	margin 0 auto
 	max-width 1000px
 			
+.canvas
+	background rgba(0,0,0,0.4)
+	display none
+	height 100%
+	left 0
+	overflow-y scroll
+	position absolute
+	top -80px
+	width 100%
+	z-index 100000
+	& .content-help
+		background white
+		border-radius 3px
+		max-width 900px
+		margin 120px auto 60px auto
+		& .header-help
+			padding 30px 60px 15px 60px
+			border-bottom 1px solid rgba(0,0,0,0.2)
+			font-size 1.5rem
+			& .help-close
+				float right
+				font-size 1.5rem
+				&:hover
+					cursor pointer
+		& .body-help
+			padding 15px 60px 40px 60px
+	
 /*=================================================================================
 Headers
 =================================================================================*/
@@ -96,6 +123,12 @@ h1
 	color #FF6600
 	font-size 3rem
 	letter-spacing -0.2rem
+	& a 
+		color #34495e
+		float right
+		font-size 1.2rem
+		margin-top 35px
+		text-decoration none
 	
 h2
 	font-size 1.6rem
@@ -106,6 +139,7 @@ h3
 	color #FF6600
 	font-size 1.2rem
 	letter-spacing -0.1rem
+	
 /*=================================================================================
 Footer
 =================================================================================*/
