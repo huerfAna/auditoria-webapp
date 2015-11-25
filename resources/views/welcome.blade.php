@@ -151,13 +151,7 @@
 @endsection
 
 @section('help')
-<div class="header-help">
-    <strong>Proceso de Auditoría</strong>
-    <i class="icon icon-cancel29 help-close"></i>
-</div>
-<div class="body-help">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At eveniet placeat quod, qui consequuntur. Temporibus quia esse impedit inventore soluta voluptatibus necessitatibus natus, tempora vero ea eveniet eum molestiae consequatur.
-</div>
+  @include('partials.help-welcome')
 @endsection
 
 @section('scripts')
