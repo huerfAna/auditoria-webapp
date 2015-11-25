@@ -267,10 +267,10 @@ input[type="submit"],
 	padding-left 17px
 	
 .notification
-	background #34495e
+	background  rgba(#34495e, 0.9)
 	color white
-	margin 5px auto
-	padding 5px 12px
+	margin 10px auto
+	padding 10px 12px
 	border-radius 2px
 	& .target-close
 		float right
@@ -280,17 +280,48 @@ input[type="submit"],
 .notification-success
 .notification-danger
 .notification-warning
-	color rgba(0,0,0,0.6)
+	color white
 	font-weight bold
 			
 .notification-success
-	background rgba(color-success, 0.8)
+	background rgba(color-success, 0.7)
 
 .notification-danger
-	background rgba(color-danger, 0.8)
+	background rgba(color-danger, 0.7)
 
 .notification-warning
-	background rgba(color-warning, 0.8)
+	background rgba(color-warning, 0.7)
+
+.cute-alert
+	align-items center
+	background white
+	border 1px solid rgba(0,0,0,0.2)
+	border-radius 2px
+	display flex
+	margin 5px
+	padding 10px 15px
+	& .icon-round
+		background  #FF6600
+		border-radius 50%
+		color white
+		font-size 1.5rem
+		margin-right 10px
+		padding 8px 10px 12px 10px
+	& .field
+		display block
+		font-weight bold 
+	& .error
+		display block
+		font-size 0.9rem
+		font-style italic
+		line-height 0.9rem
+	& .fine
+		color color-success
+		font-weight bold 
+		&:before
+			content '$'
+		&:after
+			content '.00'
 
 .paragraph
 	background white
