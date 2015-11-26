@@ -18,5 +18,7 @@ Route::get('/', function () {
 
 Route::post('/auditar', 'AuditController@run');
 Route::get('resultados', ['as' => 'resultados', 'uses' => 'AuditController@getResult']);
-Route::get('/crear/validacion', 'ValidationController@newValidation');
-Route::post('catalogos', 'ValidationController@getTable');
+Route::get('crear/validacion', 'ValidationController@newValidation');
+Route::post('catalogos', 'ValidationController@getTables');
+Route::post('campos', 'ValidationController@getFields');
+Route::post('guardar/validacion', 'ValidationController@saveValidation');
