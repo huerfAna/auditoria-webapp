@@ -96,7 +96,6 @@ function newComparation(respuesta)
 }
 
 $('#button').click(function(){    
-    //var attr = $('#attr option:selected').val();
     if($('.tabla').val() == undefined)
         tabla = '';
     else
@@ -121,7 +120,6 @@ $('#button').click(function(){
         operador = '';
     else
         operador = $(".opera option:selected").html() +',';
-
     
     result = tabla+campowh+operador+campoanx+campo;
 
