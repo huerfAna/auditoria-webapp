@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
 	<div >
-		{!! Form::open(['url' => 'guardar/validacion'])!!}
+		{!! Form::open(['url' => 'guardar/validacion', 'id' => 'form'])!!}
             {!! Form::label('Campo Anexo22') !!}<br>
 		    {!! Form::select('anexo22_id', $campos, null) !!}<br>
             {!! Form::label('Atributo') !!}<br>
             {!! Form::select('attr_id', $atributo, null,['id' => 'attr']) !!}<br>            
-            {!! Form::hidden('val_data',null,['id' => 'data']) !!}<br>
+            {!! Form::text('val_data',null,['id' => 'data']) !!}<br>
             <br><br>
             <div style="background-color:#eee; width:400px"> 
                 <strong>Crea tu validacion</strong><br>                
@@ -16,7 +16,7 @@
                 <div id="data_2"></div>                        
                 <div id="data_3"></div>                        
             </div>
-		    {!! Form::submit('Agregar',['id' => 'button']) !!}
+		    {!! Form::button('Agregar',['id' => 'button']) !!}
 		{!! Form::close() !!}
 	</div>
     @if(session()->has('data'))

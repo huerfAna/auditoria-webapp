@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Auditoria</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <h1>HOLaaaaa</h1>
-        <ul>               
+@extends('templates.base')
+
+@section('content')
+    <h1>Resultados de la Auditoría <a class="target-help"><i class="icon icon-speechbubble34"></i></a></h1> 
+    <section class="row">
         @foreach($result as $res)
         {{-- */ $anx = $res->validations->anexo22; /*--}} 
-        <p>Esto es un parrafo y extraño mis audifonos</p>
-            <li>
-            {{ $anx->a22_name }}
-            {{ $anx->infractions->inf_description }}
-            {{ $anx->infractions->sanctions->san_valmax }}
-            </li>
-        @endforeach
-        </ul>
-    </body>
-</html>
+            <div class="medium-6 columns">
+                <div class="cute-alert">
+                    <div>
+                        <i class="icon icon-round icon-warning5"></i>
+                    </div>
+                    <div>
+                        <span class="field">{{ $anx->a22_name }}</span>    
+                        <span class="error">{{ $anx->infractions->inf_description }}</span> 
+                        <span class="fine">{{ $anx->infractions->sanctions->san_valmax }}</span> 
+                    </div>
+                </div>
+            </div>
+        @endforeach  
+    </section>
+@endsection
+
+@section('help')
+    @include('partials.help-results')
+@endsection

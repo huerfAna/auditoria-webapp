@@ -10,7 +10,7 @@ $("#attr").change(function () {
             data: { _token: token, attr: valattr},
             type:  'post',                
             success: function(respuesta){                    
-                var sel = $('<select onchange="getFields()" id="table" class="input">').appendTo('#data_1');
+                var sel = $('<select onchange="getFields()" id="table" class="tabla">').appendTo('#data_1');
                 sel.append($("<option>").attr('value', '0').text('Selecciona...'));
                 $.each( respuesta, function( i, tabla ){
                     sel.append($("<option>").attr('value',tabla.name).text(tabla.name));
@@ -22,11 +22,11 @@ $("#attr").change(function () {
         });        
     }
     if(valattr == 2)
-        $( "#data_1" ).append( "<select name='dato' class='input'><option value='0'>Seleccione...</option><option value='1'>Numerico</option><option value='2'>Texto</option></select>" );
+        $( "#data_1" ).append( "<select name='dato' class='campo'><option value='0'>Seleccione...</option><option value='1'>Numerico</option><option value='2'>Texto</option></select>" );
     if(valattr == 3)
-        $( "#data_1" ).append( "<input type='number' class='input'>" );
+        $( "#data_1" ).append( "<input type='number' class='campo'>" );
     if(valattr == 5)
-        $( "#data_1" ).append( "<input type='checkbox' class='input'>Obligatorio");
+        $( "#data_1" ).append( "<input type='checkbox' class='campo'>Obligatorio");
     if(valattr == 6 || valattr == 7) 
     {
         var token =  $('input[name="_token"]').val();
@@ -36,7 +36,7 @@ $("#attr").change(function () {
             data: { _token: token},
             type:  'post',                
             success: function(respuesta){                    
-                var sel = $('<select onchange="getFields()" id="table" class="input">').appendTo('#data_1');
+                var sel = $('<select onchange="getFields()" id="table" class="tabla">').appendTo('#data_1');
                 sel.append($("<option>").attr('value', '0').text('Selecciona...'));
                 $.each( respuesta, function( i, tabla ){
                     sel.append($("<option>").attr('value',tabla.name).text(tabla.name));
@@ -64,7 +64,7 @@ function getFields()
             data: { _token: token, table: table, attr: attr},
             type:  'post',                
             success: function(respuesta){
-                var sel1 = $('<select class="input" name="field1">').appendTo('#data_2');                    
+                var sel1 = $('<select name="field1" class="campo">').appendTo('#data_2');                    
                 sel1.append($("<option>").attr('value', '0').text('Selecciona...'));
                 $.each(respuesta.campos, function( i, campo ){
                     sel1.append($("<option>").attr('value',campo.name).text(campo.name));
@@ -82,24 +82,49 @@ function getFields()
 function newComparation(respuesta)
 {
     $( "#data_3" ).empty();
-    var sel2 = $('<select class="input" name="field2">').appendTo('#data_3');
+    var sel2 = $('<select class="campowhr" name="field2">').appendTo('#data_3');
     sel2.append($("<option>").attr('value', '0').text('Selecciona...'));
     $.each( respuesta.campos, function( i, campo ){
         sel2.append($("<option>").attr('value',campo.name).text(campo.name));
     });
-    $( "#data_3").append( "<select name='opera' class='input'><option value='1'> < </option><option value='2'> > </option><option value='3'> <= </option><option value='4'> >= </option><option value='5'> = </option></select>" );
-    var sel3 = $('<select class="input" name="field3">').appendTo('#data_3');
+    $( "#data_3").append( "<select name='opera' class='opera'><option value='1'> < </option><option value='2'> > </option><option value='3'> <= </option><option value='4'> >= </option><option value='5'> = </option></select>" );
+    var sel3 = $('<select class="campoanx" name="field3">').appendTo('#data_3');
     sel3.append($("<option>").attr('value', '0').text('Selecciona...'));
     $.each( respuesta.camposanx, function( i, campo ){
         sel3.append($("<option>").attr('value',campo.name).text(campo.name));
     });
 }
 
-$('#button').click(function(){
-    var result = '';
-    element = $('.input');
-    $.each(element, function(){
-        result += $(this).val()+'|';
-    });
+$('#button').click(function(){    
+    //var attr = $('#attr option:selected').val();
+    if($('.tabla').val() == undefined)
+        tabla = '';
+    else
+        tabla = $('.tabla').val() + '|';
+
+    if($('.campo').val() == undefined)
+        campo = '';
+    else
+        campo = $('.campo').val() + '|';
+
+    if($('.campowh').val() == undefined)
+        campowh = '';
+    else
+        campowh = $('.campowh').val() + ',';
+
+    if($('.campoanx').val() == undefined)
+        campoanx = '';
+    else
+        campoanx = $('.campoanx').val() + ',';
+
+    if($('.opera').val() == undefined)
+        operador = '';
+    else
+        operador = $('.opera').val() + ',';
+
+    
+    result = tabla+campowh+operador+campoanx+campo;
+
     $('#data').val(result.substring(0,result.length - 1));
+    $( "#form" ).submit();
 });
