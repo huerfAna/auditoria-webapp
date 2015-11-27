@@ -30,6 +30,5 @@ class Attribute extends Model  {
  	public function validations()
     {
         return $this->hasMany('App\Validation');
-        //return $this->belongsTo('App\Validation');
     }
 }

@@ -28,7 +28,6 @@ class Validation extends Model  {
 	protected  $guarded = ['id','created_at','updated_at'];
     public function attributes()
     {
-        //return $this->hasMany('App\Attribute');
         return $this->belongsTo('App\Attribute');
     }
 	public function anexo22()
