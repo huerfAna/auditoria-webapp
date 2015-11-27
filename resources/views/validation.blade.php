@@ -8,7 +8,7 @@
 		    {!! Form::select('anexo22_id', $campos, null) !!}<br>
             {!! Form::label('Atributo') !!}<br>
             {!! Form::select('attr_id', $atributo, null,['id' => 'attr']) !!}<br>            
-            {!! Form::hidden('val_data',null,['id' => 'data']) !!}<br>
+            {!! Form::text('val_data',null,['id' => 'data']) !!}<br>
             <br><br>
             <div style="background-color:#eee; width:400px"> 
                 <strong>Crea tu validacion</strong><br>                
