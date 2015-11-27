@@ -22,3 +22,7 @@ Route::get('crear/validacion', 'ValidationController@newValidation');
 Route::post('catalogos', 'ValidationController@getTables');
 Route::post('campos', 'ValidationController@getFields');
 Route::post('guardar/validacion', 'ValidationController@saveValidation');
+
+Route::get('creators', function(){
+	return view('brand&policy.creators');
+});

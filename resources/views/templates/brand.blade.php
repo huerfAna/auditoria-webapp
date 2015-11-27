@@ -26,7 +26,7 @@
 				<li><a>Información</a></li>
 				<li><a>Empresa</a></li>
 				<li><a>Derechos de autor</a></li>
-				<li><a>Creadores</a></li>
+				<li><a>Desarrolladores</a></li>
 				<li><a>Publicidad</a></li>
 			</ul>
 			<ul class="list-second">

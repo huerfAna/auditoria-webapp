@@ -610,6 +610,83 @@ divider-color = #b6b6b6
 			border-radius 2px
 			color white
 
+
+.banner
+	background url('../img/banners/banner-creators.jpg')
+	background-size cover
+	background-position center
+	color white
+	height 420px
+	margin-top 50px
+	padding 4rem
+	width 100%
+	& h1 
+		border none
+		color white
+		font-weight 300
+		margin 0
+	& p
+		font-size 1.2rem
+		font-weight 300
+		margin 0
+		text-shadow 1px 1px 2px rgba(0,0,0,0.3)
+		
+.canvas-grayspace
+	background #444
+	color white
+	padding 40px
+	
+.creator
+	margin 40px 0
+	& .creator-body
+		display flex
+		height 250px
+		& .creator-banner
+			background url('../img/banners/frontend.jpg')
+			background-position center
+			background-size cover
+			width 60%
+		& .creator-info
+			width 40%
+			background #2793e6
+			padding 40px
+			& img
+				border-radius 50%
+				height 100px
+				width 100px
+			& .creator-data
+				align-items center
+				display flex
+				justify-content space-between
+				& strong
+					display block
+					font-size 1.2rem
+				& span 
+					font-size 1rem
+				& i 
+					background #126db3
+					border-radius 50%
+					color #2793e6
+					font-size 1.8rem
+					padding 9px
+					&:hover
+						cursor pointer
+	& .creator-description
+		background #126db3
+		padding 40px
+		display none
+		
+.backend
+	background url('../img/banners/backend.jpg') !important
+	background-position center !important
+	background-size cover !important
+	
+.manager
+	background url('../img/banners/manager.jpg') !important
+	background-position center !important
+	background-size cover !important
+	
+
 .show-grid
 	background rgba(#FF6600, 0.3)
 	border-radius 3px
@@ -662,3 +739,13 @@ divider-color = #b6b6b6
 				padding 10px 0
 				&:last-child
 					border-bottom none
+					
+	.creator
+		& .creator-body
+			display block
+			height auto
+			& .creator-banner
+				display none
+			& .creator-info
+				display block
+				width 100%
