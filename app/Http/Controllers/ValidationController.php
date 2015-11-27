@@ -41,7 +41,7 @@ class ValidationController extends Controller
         $atributo = Input::get('attr');
         if($atributo == 6)
         {
-            $camposanx = \DB::table('aud_anexo22')->select('a22_name as name')->get(); 
+            $camposanx = \DB::table('aud_anexo22')->select('id','a22_name as name')->get(); 
         }
         $campos = \DB::table('INFORMATION_SCHEMA.COLUMNS')->select('COLUMN_NAME as name')->where('TABLE_NAME',$tabla)->get();
         return \Response::json(['campos' => $campos,'camposanx' => $camposanx]);
