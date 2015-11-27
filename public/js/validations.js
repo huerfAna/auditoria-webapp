@@ -91,7 +91,7 @@ function newComparation(respuesta)
     var sel3 = $('<select class="campoanx" name="field3">').appendTo('#data_3');
     sel3.append($("<option>").attr('value', '0').text('Selecciona...'));
     $.each( respuesta.camposanx, function( i, campo ){
-        sel3.append($("<option>").attr('value',campo.name).text(campo.name));
+        sel3.append($("<option>").attr('value',campo.id).text(campo.name));
     });
 }
 
@@ -107,20 +107,20 @@ $('#button').click(function(){
     else
         campo = $('.campo').val() + '|';
 
-    if($('.campowh').val() == undefined)
+    if($('.campowhr').val() == undefined)
         campowh = '';
     else
-        campowh = $('.campowh').val() + ',';
+        campowh = $('.campowhr').val() + ',';
 
     if($('.campoanx').val() == undefined)
         campoanx = '';
     else
-        campoanx = $('.campoanx').val() + ',';
+        campoanx = $('.campoanx').val() + '|';
 
-    if($('.opera').val() == undefined)
+    if($(".opera option:selected").html() == undefined)
         operador = '';
     else
-        operador = $('.opera').val() + ',';
+        operador = $(".opera option:selected").html() +',';
 
     
     result = tabla+campowh+operador+campoanx+campo;
