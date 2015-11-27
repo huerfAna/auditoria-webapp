@@ -20,19 +20,19 @@
         <div class="row">
         {!! Form::open(array('url' => 'auditar')) !!}                    
             <div class="medium-6 columns">
-                <input type="hidden" name="fechaini" value="@{{datevalue | date:'yyyy-MM-dd'}}">
+                <input type="hidden" name="fechaini" value="@{{date | date:'yyyy-MM-dd'}}">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <time-date-picker ng-model="datevalue" display-mode="date"></time-date-picker>
+                        <time-date-picker ng-model="date" display-mode="date"></time-date-picker>
                     </div>
                 </div>
             </div>
 
             <div class="medium-6 columns">
-                <input type="hidden" name="fechafin" value="@{{date | date:'yyyy-MM-dd'}}">
+                <input type="hidden" name="fechafin" value="@{{datevalue | date:'yyyy-MM-dd'}}">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <time-date-picker ng-model="date" display-mode="date"></time-date-picker>
+                        <time-date-picker ng-model="datevalue" display-mode="date"></time-date-picker>
                     </div>
                 </div>
             </div>

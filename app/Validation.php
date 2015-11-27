@@ -100,5 +100,4 @@ class Validation extends Model  {
         }   
         return $valor;     
     }
-
 }
