@@ -490,6 +490,7 @@ divider-color = #b6b6b6
 		& input[type="text"],
 		& input[type="email"],
 		& input[type="password"]
+		& textarea
 			color primary
 			width 100%
 			outline none
@@ -610,6 +611,8 @@ divider-color = #b6b6b6
 			border-radius 2px
 			color white
 
+.box 
+	height 8rem
 
 .banner
 	background url('../img/banners/banner-creators.jpg')
@@ -696,6 +699,12 @@ divider-color = #b6b6b6
 	background url('../img/banners/banner-publicity.jpg') !important
 	background-position center !important
 	background-size cover !important
+		
+.comments
+	background url('../img/banners/banner-comments.jpg') !important
+	background-position center !important
+	background-size cover !important
+	border-bottom 15px solid #444
 	
 .paper	
 	background white 
@@ -712,7 +721,32 @@ divider-color = #b6b6b6
 	& a 
 		line-height 1rem
 		text-decoration none
-	
+		
+.security-intro
+	display flex
+	margin 40px 0	
+	& .security-body
+		background white
+		padding 20px
+	& img
+		min-width 400px
+		height 320px
+		
+.security
+	background white 
+	margin 40px 0
+	padding 30px
+	& .item-security
+		align-items center
+		display flex
+		margin 15px 10px
+		& p 
+			margin 0
+		& i 
+			color #f60
+			font-size 2.8rem
+			margin-right 10px
+
 
 .show-grid
 	background rgba(#FF6600, 0.3)
@@ -776,3 +810,9 @@ divider-color = #b6b6b6
 			& .creator-info
 				display block
 				width 100%
+				
+	.security-intro
+		display block
+		& img 
+			height auto
+			width 100%

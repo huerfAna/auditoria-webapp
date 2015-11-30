@@ -35,3 +35,9 @@ Route::get('terminos', function(){
 Route::get('privacidad', function(){
 	return view('brand&policy.privacy');
 });
+Route::get('seguridad', function(){
+	return view('brand&policy.security');
+});
+Route::get('comentarios', function(){
+	return view('brand&policy.comments');
+});

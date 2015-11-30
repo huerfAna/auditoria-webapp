@@ -32,8 +32,8 @@
 			<ul class="list-second">
 				<li><a href="{{ url('terminos') }}">Términos</a></li>
 				<li><a href="{{ url('privacidad') }}">Privacidad</a></li>
-				<li><a>Politica de seguridad</a></li>
-				<li><a>Enviar sugerencias</a></li>
+				<li><a href="{{ url('seguridad') }}">Politica de seguridad</a></li>
+				<li><a href="{{ url('comentarios') }}">Enviar sugerencias</a></li>
 			</ul>
 		</div>	
 	</footer>
