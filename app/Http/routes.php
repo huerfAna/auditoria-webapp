@@ -29,3 +29,9 @@ Route::get('creators', function(){
 Route::get('publicidad', function(){
 	return view('brand&policy.publicity');
 });
+Route::get('terminos', function(){
+	return view('brand&policy.terms');
+});
+Route::get('privacidad', function(){
+	return view('brand&policy.privacy');
+});

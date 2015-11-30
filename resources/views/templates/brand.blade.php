@@ -30,8 +30,8 @@
 				<li><a href="{{ url('publicidad') }}">Publicidad</a></li>
 			</ul>
 			<ul class="list-second">
-				<li><a>Términos</a></li>
-				<li><a>Privacidad</a></li>
+				<li><a href="{{ url('terminos') }}">Términos</a></li>
+				<li><a href="{{ url('privacidad') }}">Privacidad</a></li>
 				<li><a>Politica de seguridad</a></li>
 				<li><a>Enviar sugerencias</a></li>
 			</ul>
