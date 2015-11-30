@@ -26,3 +26,6 @@ Route::post('guardar/validacion', 'ValidationController@saveValidation');
 Route::get('creators', function(){
 	return view('brand&policy.creators');
 });
+Route::get('publicidad', function(){
+	return view('brand&policy.publicity');
+});

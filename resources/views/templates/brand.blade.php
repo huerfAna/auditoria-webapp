@@ -26,8 +26,8 @@
 				<li><a>Información</a></li>
 				<li><a>Empresa</a></li>
 				<li><a>Derechos de autor</a></li>
-				<li><a>Desarrolladores</a></li>
-				<li><a>Publicidad</a></li>
+				<li><a href="{{ url('creators') }}">Desarrolladores</a></li>
+				<li><a href="{{ url('publicidad') }}">Publicidad</a></li>
 			</ul>
 			<ul class="list-second">
 				<li><a>Términos</a></li>
