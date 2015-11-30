@@ -41,3 +41,6 @@ Route::get('seguridad', function(){
 Route::get('comentarios', function(){
 	return view('brand&policy.comments');
 });
+Route::get('/derechos', function(){
+	return view('brand&policy.rights');
+});

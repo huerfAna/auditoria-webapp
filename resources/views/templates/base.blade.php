@@ -41,12 +41,12 @@
 	<footer>
 		<div class="content">
 			<div class="footer-brand">
-				<img src="img/orange.jpg" alt="">
+				<img src="{{ asset('img/orange.jpg') }}" alt="">
 			</div>
 			<ul class="list-main">
 				<li><a>Información</a></li>
 				<li><a>Empresa</a></li>
-				<li><a>Derechos de autor</a></li>
+				<li><a href="{{ url('derechos') }}">Derechos de autor</a></li>
 				<li><a href="{{ url('creators') }}">Desarrolladores</a></li>
 				<li><a href="{{ url('publicidad') }}">Publicidad</a></li>
 			</ul>
