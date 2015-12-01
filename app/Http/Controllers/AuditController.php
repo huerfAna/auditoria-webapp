@@ -62,12 +62,12 @@ class AuditController extends Controller
                     }                                   
                 }
             }  
-            return  redirect()->route('resultados');  
+            return  redirect()->route('results');  
         }
         else
         {
            return redirect()->back()->with('error', 'No se encontraron referencias.');
-        }             
+        }            
     }
     public function getResult()
     {

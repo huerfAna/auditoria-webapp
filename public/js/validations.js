@@ -1,3 +1,27 @@
+$( document ).ready(function() {
+    var anx = $('#anx option:selected').val();
+    showTable(anx);      
+});
+
+$("#anx").change(function () {
+    var anx = $('#anx option:selected').val();
+    showTable(anx);   
+});
+
+function showTable(anx)
+{
+    $( "#table" ).empty();
+    $.get( "validacion/"+anx, function( data ) {
+        $('#table').append(  '<table>' );
+            $('#table').append( '<tr><td>Atributo</td><td>Valor</td></tr>' );
+            $.each(data, function( i, valor ){                
+                $('#table').append( '<tr><td>' + valor.attribute_id + '</td><td>' + valor.val_data + '</td><td><a href="" onclick="deleteValidation('+valor.id+')">Eliminar</td></tr>' );
+             });
+        $('#table').append('</table>' );        
+    });
+
+}
+
 $("#attr").change(function () {
     $( "#data_1" ).empty();
     var valattr = $('#attr option:selected').val();
@@ -6,7 +30,7 @@ $("#attr").change(function () {
         var token =  $('input[name="_token"]').val();
         $.ajax({
             dataType: "JSON",                
-            url:   '../catalogos',
+            url:   'catalogos',
             data: { _token: token, attr: valattr},
             type:  'post',                
             success: function(respuesta){                    
@@ -32,7 +56,7 @@ $("#attr").change(function () {
         var token =  $('input[name="_token"]').val();
         $.ajax({
             dataType: "JSON",                
-            url:   '../catalogos',
+            url:   'catalogos',
             data: { _token: token},
             type:  'post',                
             success: function(respuesta){                    
@@ -126,3 +150,29 @@ $('#button').click(function(){
     $('#data').val(result.substring(0,result.length - 1));
     $( "#form" ).submit();
 });
+
+function deleteValidation(id)
+{
+    var x = confirm("Deseas eliminar la validacion?");
+    var token =  $('input[name="_token"]').val();
+    if (x) {
+        event.preventDefault();
+        $.ajax({
+            dataType: "JSON",                
+            url:   'validacion/'+id,            
+            type:  'delete',   
+            data: { _token: token},             
+            success: function(respuesta){
+               showTable(respuesta);
+            },
+            error:function(xhr,err){ 
+                return false;
+            }
+        });
+        
+    }
+    else {
+        event.preventDefault();
+        return false;
+    }
+}

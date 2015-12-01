@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
 	<div >
-		{!! Form::open(['url' => 'guardar/validacion', 'id' => 'form'])!!}
+		{!! Form::open(['route' => 'validacion.store', 'id' => 'form'])!!}
             {!! Form::label('Campo Anexo22') !!}<br>
-		    {!! Form::select('anexo22_id', $campos, null) !!}<br>
+		    {!! Form::select('anexo22_id', $campos, session('id'),['id' => 'anx']) !!}<br>
             {!! Form::label('Atributo') !!}<br>
-            {!! Form::select('attr_id', $atributo, null,['id' => 'attr']) !!}<br>            
+            {!! Form::select('attribute_id', $atributo, null,['id' => 'attr']) !!}<br>            
             {!! Form::hidden('val_data',null,['id' => 'data']) !!}<br>
             <br><br>
             <div style="background-color:#eee; width:400px"> 
@@ -18,28 +18,8 @@
             </div>
 		    {!! Form::button('Agregar',['id' => 'button']) !!}
 		{!! Form::close() !!}
-	</div>
-    @if(session()->has('data'))
-        <div id="table">
-            <strong>{{ session('campo') }}</strong>
-            <table>
-                <thead>
-                    <td>Atributo</td>
-                    <td>Valor</td>
-                </thead>
-                <tbody>
-                    @foreach (session('data') as $val)
-                        <tr>
-                            <td>
-                                {{ $val->attribute_id }}                              
-                            </td>
-                            <td>{{ $val->val_data  }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>            
-            </table>
-        </div>
-    @endif
+	</div>    
+    <div id="table"></div>   
 </div>
 @endsection
 @section('scripts')

@@ -30,8 +30,6 @@ class Infraction extends Model  {
     {
         return $this->hasMany('App\Anexo22');
     }
-  	public function sanctions()
-    {
-        return $this->belongsTo('App\Sanction');
-    }
+    
+
 }

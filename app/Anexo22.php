@@ -36,7 +36,7 @@ class Anexo22 extends Model  {
         return $this->hasMany('App\Relationship');
     }
  	
- 	public function infractions()
+ 	public function infraction()
     {
         return $this->belongsTo('App\Infraction');
     }

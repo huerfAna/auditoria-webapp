@@ -7,7 +7,9 @@ use App\Anexo22;
 use App\Attribute;
 use App\Http\Controllers\Controller;
 use Input;
-
+use Response;
+use App\Http\Requests\ValidationRequest;
+use Illuminate\Routing\Route;
 
 class ValidationController extends Controller
 {
@@ -15,7 +17,9 @@ class ValidationController extends Controller
      *
      * @return Response
      */
-    public function newValidation()
+    protected $request;
+
+    public function index()
     {
         $campos = Anexo22::lists('a22_name','id');
         $atributo = Attribute::lists('name','id');
@@ -46,19 +50,28 @@ class ValidationController extends Controller
         $campos = \DB::table('INFORMATION_SCHEMA.COLUMNS')->select('COLUMN_NAME as name')->where('TABLE_NAME',$tabla)->get();
         return \Response::json(['campos' => $campos,'camposanx' => $camposanx]);
     }
-    public function saveValidation()
+    public function store(ValidationRequest $request)
     {
-        $datos = [
-            "anexo22_id" => Input::get('anexo22_id'),
-            "attribute_id"    => Input::get('attr_id'),
-            "val_data"   => Input::get('val_data')
-        ];
+        Validation::create($request->all());
+        
+        return redirect()->back()->with(['id' => $request->anexo22_id]); 
 
-        Validation::create($datos);
+    }
+    public function show($anx)
+    {
+        $anexo = Anexo22::where('id',$anx)->first();                     
+        $validaciones = $anexo->validations()->where('anexo22_id',$anx)->get();        
         
-        $anexo = Anexo22::where('id',Input::get('anexo22_id'))->first();                     
-        $validaciones = $anexo->validations()->where('anexo22_id',Input::get('anexo22_id'))->get();        
+       return $validaciones; 
         
-        return redirect()->back()->with('data', $validaciones)->with('campo',$anexo->a22_name); 
+    }
+    public function destroy($id)
+    {
+        $validacion = Validation::find($id);
+        $anexo = $validacion->anexo22_id;
+        $result = Validation::destroy($id);
+
+        return Response::json($anexo);
+        
     }
 }

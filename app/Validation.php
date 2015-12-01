@@ -26,7 +26,7 @@ class Validation extends Model  {
 	 * @var array
 	 */
 	protected  $guarded = ['id','created_at','updated_at'];
-    public function attributes()
+    public function attribute()
     {
         return $this->belongsTo('App\Attribute');
     }

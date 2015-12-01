@@ -28,7 +28,7 @@ class Result extends Model  {
 	protected $fillable = ['res_referen','validations_id'];
 	protected  $guarded = ['created_at','updated_at'];
 
-	public function validations()
+	public function validation()
     {
         return $this->belongsTo('App\Validation');
     }

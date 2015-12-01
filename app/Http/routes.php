@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 
 Route::post('/auditar', 'AuditController@run');
-Route::get('resultados', ['as' => 'resultados', 'uses' => 'AuditController@getResult']);
-Route::get('crear/validacion', 'ValidationController@newValidation');
+Route::get('resultados', ['as' => 'results', 'uses' => 'AuditController@getResult']);
+
+Route::resource('validacion', 'ValidationController',['only' => ['index', 'store','destroy','show']]);
 Route::post('catalogos', 'ValidationController@getTables');
 Route::post('campos', 'ValidationController@getFields');
-Route::post('guardar/validacion', 'ValidationController@saveValidation');
+
+Route::resource('infraccion','InfractionController',['except' => ['show']]);
