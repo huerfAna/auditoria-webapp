@@ -22,5 +22,8 @@ Route::get('resultados', ['as' => 'results', 'uses' => 'AuditController@getResul
 Route::resource('validacion', 'ValidationController',['only' => ['index', 'store','destroy','show']]);
 Route::post('catalogos', 'ValidationController@getTables');
 Route::post('campos', 'ValidationController@getFields');
+Route::post('tipoDocumento', 'ValidationController@getDocument');
 
 Route::resource('infraccion','InfractionController',['except' => ['show']]);
+Route::resource('solucion','SolutionController');
+

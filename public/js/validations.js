@@ -70,7 +70,28 @@ $("#attr").change(function () {
                 alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status+"\n \n responseText: "+xhr.responseText);
             }
         });
-    }        
+    }  
+    if(valattr == 9)      
+    {
+        var token =  $('input[name="_token"]').val();
+        $.ajax({
+            dataType: "JSON",                
+            url:   'tipoDocumento',
+            data: { _token: token},
+            type:  'post',                
+            success: function(respuesta){
+                var sel = $('<select name="field1" class="tabla">').appendTo('#data_1');                    
+                sel.append($("<option>").attr('value', '0').text('Selecciona...'));
+                $.each(respuesta.documento, function( i, campo ){
+                    sel.append($("<option>").attr('value',campo.doc_clave).text(campo.doc_nombre));
+                }); 
+            },
+            error:function(xhr,err){ 
+                alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status+"\n \n responseText: "+xhr.responseText);
+            }
+        });
+        $( "#data_2" ).append( "<input type='text' class='campo'>" );
+    }
 });    
 
 //Obtener campos de la tabla seleccionada
@@ -84,7 +105,7 @@ function getFields()
         var token =  $('input[name="_token"]').val();
         $.ajax({
             dataType: "JSON",                
-            url:   '../campos',
+            url:   'campos',
             data: { _token: token, table: table, attr: attr},
             type:  'post',                
             success: function(respuesta){

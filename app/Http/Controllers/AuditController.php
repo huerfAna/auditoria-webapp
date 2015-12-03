@@ -7,6 +7,7 @@ use App\Catalog;
 use App\Infraction;
 use App\Sanction;
 use App\Result;
+use App\Solution;
 use Input;
 use DB;
 use Session;
@@ -45,21 +46,26 @@ class AuditController extends Controller
                             $data = [
                                 "tabla"     => $camposbd->table,
                                 "campos"    => $camposbd->field,
-                                "id_val"    => $val->attr_id,
+                                "id_val"    => $val->attribute_id,
                                 "data_val"  => $val->val_data,
                                 "anx_id"    => $anx->id,
-                                "entrada"   => $valorOrigen['entrada']
+                                "entrada"   => $valorOrigen['entrada'],
+                                "referencia" => $pk_referencia
                             ];
-                            $valor = $validacion->getValidation($referen,$data);
+                            $valor = $validacion->getValidation($data);
                             if($valor == 0)
                             {
                                 $datos = [
                                     "res_referen" => $pk_referencia,
                                     "validations_id"  => $valid                           
                                 ];
-                                Result::firstOrNew($datos);                                                        
-                            }                 
-                    }                                   
+                                $totalres = Result::where('res_referen',$pk_referencia)->where('validations_id',$valid)->count();
+                                if($totalres == 0)
+                                    Result::create($datos);                                                        
+                            }                
+                           // echo $valor;
+                    }                           
+                    
                 }
             }  
             return  redirect()->route('results');  
@@ -71,7 +77,14 @@ class AuditController extends Controller
     }
     public function getResult()
     {
-        $resultado = Result::all();
-        return view('results')->with('result', $resultado);    
+       
+       $resultado = Result::join('aud_validations' , 'aud_results.validations_id' ,'=' , 'aud_validations.id')
+            ->join('aud_anexo22' , 'aud_validations.anexo22_id' , '=' , 'aud_anexo22.id')
+            ->join('aud_infractions' , 'aud_anexo22.infractions_id' , '=' , 'aud_infractions.id')
+            ->leftjoin('aud_solutions' , 'aud_results.id' ,'=' , 'aud_solutions.results_id')
+            ->select('aud_solutions.id as idsol','res_referen','aud_results.id as id','a22_name','inf_description','inf_valmax','res_status')
+            ->get();
+        
+        return view('results')->with(['result'=> $resultado]);    
     }
 }

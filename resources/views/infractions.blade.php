@@ -21,7 +21,7 @@
                                     <td>{{ $inf->inf_fine }}</td>
                               @endif
                               <td><a href="{{ route('infraccion.edit',$inf->id) }}">Editar</a></td>
-                              <td><a href="{{ route('infraccion.destroy', $inf->id) }}" class="btn-delete">Eliminar</a></td>
+                              <td><a href="{{ route('infraccion.destroy', $inf->id) }}" class="btn-delete">Eliminar</a></td>                             
                         </tr>
                   @endforeach                  
                   <tbody></tbody>                  

@@ -32,6 +32,10 @@ class Result extends Model  {
     {
         return $this->belongsTo('App\Validation');
     }
+    public function solutions()
+    {
+        return $this->hasMany('App\solution');
+    }
 }
 
  

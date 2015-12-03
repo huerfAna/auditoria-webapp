@@ -41,10 +41,9 @@ class InfractionController extends Controller
 	}
 	public function edit($id)
 	{
-		$infraccion= $this->infraccion;		
+		//$infraccion= $this->infraccion;		
 		//$sancion = Sanction::find($infraccion->sanction_id);
-
-		return view('edit_infraction')->with(['infraccion' => $infraccion,'multas' => $this->multas]);
+		return view('edit_infraction')->with(['infraccion' => $this->infraccion,'multas' => $this->multas]);
 	}
 	public function store(InfractionRequest $request)
 	{

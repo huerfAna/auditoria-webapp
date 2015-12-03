@@ -45,32 +45,36 @@ class ValidationController extends Controller
         $atributo = Input::get('attr');
         if($atributo == 6)
         {
-            $camposanx = \DB::table('aud_anexo22')->select('id','a22_name as name')->get(); 
+            $camposanx = Anexo22::all(); 
         }
         $campos = \DB::table('INFORMATION_SCHEMA.COLUMNS')->select('COLUMN_NAME as name')->where('TABLE_NAME',$tabla)->get();
         return \Response::json(['campos' => $campos,'camposanx' => $camposanx]);
     }
+    public function getDocument()
+    {
+        $documento = \DB::connection('master')->table('mdb_tipodocum')->select('doc_clave','doc_nombre')->get();
+
+        return \Response::json(['documento' => $documento]);
+    }
     public function store(ValidationRequest $request)
     {
-        Validation::create($request->all());
+        Validation::create($request->only(['anexo22_id','attribute_id','val_data']));
         
         return redirect()->back()->with(['id' => $request->anexo22_id]); 
-
     }
     public function show($anx)
     {
         $anexo = Anexo22::where('id',$anx)->first();                     
         $validaciones = $anexo->validations()->where('anexo22_id',$anx)->get();        
         
-       return $validaciones; 
-        
+       return $validaciones;         
     }
     public function destroy($id)
     {
         $validacion = Validation::find($id);
         $anexo = $validacion->anexo22_id;
         $result = Validation::destroy($id);
-
+        
         return Response::json($anexo);
         
     }
