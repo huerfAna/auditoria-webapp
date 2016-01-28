@@ -17,11 +17,11 @@
 	</header>
 	
 	<div class="sidebar">
-		<ul>
-			<a href=""><li><i class="icon icon-gear40"></i><span>Auditoría</span></li></a>
-			<a href=""><li><i class="icon icon-book270"></i><span>Reglas de Validación</span></li></a>
-			<a href=""><li><i class="icon icon-warning5"></i><span>Sanciones</span></li></a>
-			<a href=""><li><i class="icon icon-check74"></i><span>Solventaciones</span></li></a>
+		<ul>			
+			<a href="{{ route('administracion.index') }}"><li><i class="icon icon-gear40"></i><span>Administracion(Auditoría)</span></li></a>
+			<a href="{{ route('validacion.index') }}"><li><i class="icon icon-book270"></i><span>Reglas de Validación</span></li></a>
+			<a href="{{ route('infraccion.index') }}"><li><i class="icon icon-warning5"></i><span>Infracción/Sanción</span></li></a>
+			<a href="{{ route('solucion.index') }}"><li><i class="icon icon-check74"></i><span>Solventaciones</span></li></a>
 			<a href=""><li><i class="icon icon-upload142"></i><span>Carga de Información</span></li></a>
 			<a href=""><li><i class="icon icon-question5"></i><span>Ayuda</span></li></a>
 		</ul>

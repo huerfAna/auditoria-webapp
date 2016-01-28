@@ -64,4 +64,6 @@ class InfractionController extends Controller
 		Infraction::destroy($id);
 		return 'Elemento eliminado';
 	}
+
+	
 }

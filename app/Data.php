@@ -53,7 +53,7 @@ class Data extends Model
 	}
 	public function getRecords($fechaini,$fechafin,$fechap)
 	{
-		$referencia = Data::where($fechap,'>=', $fechaini)->where($fechap,'<=', $fechafin)->get()->take(1);        
+		$referencia = Data::where($fechap,'>=', $fechaini)->where($fechap,'<=', $fechafin)->get()->take(2);        
         if(count($referencia) == 0)
             return false; 
         else

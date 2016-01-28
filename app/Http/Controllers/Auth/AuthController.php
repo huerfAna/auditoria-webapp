@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -61,5 +62,13 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    public function login($id, $usu)
+    {        
+        Session::put('empresa',$id);        
+        $usuario = \DB::connection('master')->table('mdb_usuarios')->where('id',$usu)->first();
+        $nombre = $usuario->usu_nombre.' '.$usuario->usu_apepat;
+        Session::put('usuario',$nombre);
+        return view('welcome');
     }
 }

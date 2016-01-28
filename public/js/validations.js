@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     var anx = $('#anx option:selected').val();
-    showTable(anx);      
+    if(anx != 0)
+        showTable(anx);      
 });
 
 $("#anx").change(function () {
@@ -19,7 +20,6 @@ function showTable(anx)
              });
         $('#table').append('</table>' );        
     });
-
 }
 
 $("#attr").change(function () {
@@ -37,7 +37,8 @@ $("#attr").change(function () {
                 var sel = $('<select onchange="getFields()" id="table" class="tabla">').appendTo('#data_1');
                 sel.append($("<option>").attr('value', '0').text('Selecciona...'));
                 $.each( respuesta, function( i, tabla ){
-                    sel.append($("<option>").attr('value',tabla.name).text(tabla.name));
+                    name = checkValue(tabla.name)                    
+                    sel.append($("<option>").attr('value',tabla.name).text(name));
                 }); 
             },
             error:function(xhr,err){ 
@@ -101,7 +102,7 @@ function getFields()
         
     $("#table option:selected").each(function () {
         $( "#data_2" ).empty();
-        var table = $(this).text();
+        var table = $(this).val();
         var token =  $('input[name="_token"]').val();
         $.ajax({
             dataType: "JSON",                
@@ -196,4 +197,54 @@ function deleteValidation(id)
         event.preventDefault();
         return false;
     }
+}
+function checkValue(tabla)
+{
+    var res = '';
+
+    data = {        
+        "mdb_aduanas" : "Aduanas",
+        "mdb_cambio" : "Tipo de Cambio",
+        "mdb_consolid" : "Contribuciones",
+        "mdb_conten" : "Contenedores",
+        "mdb_contrib" : "Contribuciones",
+        "mdb_cpedimen" : "Clave de Pedimento",
+        "mdb_datgral" : "Datos generales",
+        "mdb_destinos" : "Destinos aduaneros",
+        "mdb_empresas" : "Empresas",
+        "mdb_fmonext" : "Factor Moneda",
+        "mdb_fpago" : "Forma de pago",
+        "mdb_fraccion" : "Fraccion",
+        "mdb_ident" : "Identificadores",
+        "mdb_incoterm" : "Incoterms",
+        "mdb_inpc" : "INPC",
+        "mdb_material" : "Materiales",
+        "mdb_monedas" : "Monedas",        
+        "mdb_omamonedas" : "Moneda (OMA)",
+        "mdb_omaumedida" : "Unidad de Medida (OMA)",
+        "mdb_operacion" : "Tipo de Operacion",
+        "mdb_paises" : "Paises",
+        "mdb_permisos" : "Permisos",
+        "mdb_recintoe" : "Recintos Entrada",
+        "mdb_recintos" : "Recintos Salida",
+        "mdb_regimen" : "Regimen",
+        "mdb_regular" : "Regularizaciones",
+        "mdb_sustanci" : "Sustencias",
+        "mdb_tasas" : "Tasas",
+        "mdb_tfactura" : "Tipo Factura",
+        "mdb_tipocambio" : "Tipo de cambio",
+        "mdb_tipodocum" : "Tipo de documento",
+        "mdb_tpediment" : "Tipo de pedimento",
+        "mdb_transp" : "Transporte",
+        "mdb_umedida" : "Unidad de Medida",
+        "mdb_valora" : "Valor Aduana"
+    };
+    
+    $.each(data, function(key, value){
+        if(tabla == key)
+            res = data[key];
+    });
+
+    return res;
+
 }

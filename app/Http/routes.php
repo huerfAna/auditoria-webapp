@@ -10,11 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('login/{empresa}/{usu}', ['as' => 'auditar','uses'=> 'Auth\AuthController@login']);
+Route::get('home', function(){
+	return view('welcome');
 });
-
 
 Route::post('/auditar', 'AuditController@run');
 Route::get('resultados', ['as' => 'results', 'uses' => 'AuditController@getResult']);
@@ -27,6 +26,10 @@ Route::post('tipoDocumento', 'ValidationController@getDocument');
 
 Route::resource('infraccion','InfractionController',['except' => ['show']]);
 Route::resource('solucion','SolutionController');
+Route::resource('result','ResultController');
+Route::resource('administracion','AdminController');
+Route::resource('expedientes','ListController');
+
 
 
 Route::get('creators', function(){

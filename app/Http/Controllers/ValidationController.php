@@ -58,7 +58,7 @@ class ValidationController extends Controller
     }
     public function store(ValidationRequest $request)
     {
-        Validation::create($request->only(['anexo22_id','attribute_id','val_data']));
+        Validation::create($request->only(['anexo22_id','attribute_id','val_data','val_description']));
         
         return redirect()->back()->with(['id' => $request->anexo22_id]); 
     }

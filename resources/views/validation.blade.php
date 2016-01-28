@@ -14,7 +14,9 @@
                 <strong>Crea tu validacion</strong><br>                
                 <div id="data_1"></div>
                 <div id="data_2"></div>                        
-                <div id="data_3"></div>                        
+                <div id="data_3"></div>  
+                {!! Form::label('Descripción') !!}
+                {!! Form::textarea('val_description',null,['rows' => 2]) !!}                      
             </div>
 		    {!! Form::button('Agregar',['id' => 'button']) !!}
 		{!! Form::close() !!}

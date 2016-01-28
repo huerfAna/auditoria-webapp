@@ -25,7 +25,7 @@ class Result extends Model  {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['res_referen','validations_id'];
+	protected $fillable = ['res_referen','validations_id','res_company','res_user','res_document'];
 	protected  $guarded = ['created_at','updated_at'];
 
 	public function validation()
@@ -36,6 +36,7 @@ class Result extends Model  {
     {
         return $this->hasMany('App\solution');
     }
+    
 }
 
  

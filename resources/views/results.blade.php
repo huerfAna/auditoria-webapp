@@ -3,49 +3,37 @@
 @section('content')
     <h1>Resultados de la Auditoría <a class="target-help"><i class="icon icon-speechbubble34"></i></a></h1> 
     <section class="row">
-        @foreach($result as $res) 
-            <strong>{{ $res->res_referen }}</strong><br>     
-            <div class="medium-6 columns">
+        @foreach($result as $res)             
+            <div class="medium-6 columns">            
                 <div class="cute-alert">
                     <div>
-                        <i class="icon icon-round icon-warning5"></i>
+                        <a href="{{ route('solucion.show', $res->idsol) }}" ><i class="icon icon-round icon-warning5"></i></a>
                     </div>
                     <div>
-                        <span class="field">{{ $res->a22_name }}</span>    
-                        <span class="error">{{ $res->inf_description }}</span> 
-                        <span class="fine">{{ $res->inf_valmax }}</span> 
-                        <span>{{ $res->res_status}}</span> 
-                        @if($res->res_status == 0)
-                            <a href="" class="show-form-create">Solventar</a>                        
+                        <span class="field">{{ $res->res_referen }}</span>
+                        <span class="field">{{ $res->a22_name }} : {{ $res->val_description }}</span>    
+                        <span class="error">{{ $res->inf_fundament }} - {{ $res->inf_description }}</span>                        
+                        @if($res->inf_valmax == 0)
+                            <span class="error">{{ $res->inf_fine }}</span>     
                         @else
-                            <a href="{{ route('solucion.edit', $res->idsol) }}" >Solventar</a>                        
+                            <span class="fine">{{ $res->inf_valmax }}</span>                                                 
                         @endif
-
-                    </div>
+                        
+                        <a href="{{ route('solucion.create', ['res'=>$res->id]) }}" >Solventar</a>                     
+                        
+                      
+                    </div>                    
                 </div>
-            </div>            
-        @endforeach  
+            </div>      
+                
+        @endforeach 
     </section>
-    <section>
-        @include ('new_solution') 
-        @if(isset($solucion))
-            @include('edit_solution')
-        @endif
-        
+    <section>     
+        @if(session('id'))
+            @include('new_solution')        
+        @endif      
     </section>    
 @endsection
 @section('help')
     @include('partials.help-results')
-@endsection
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('.show-form-create').click(function(e){
-            e.preventDefault();
-            $('#form-create').toggle('fast');
-        });  
-     
-
-    });
-</script>
 @endsection

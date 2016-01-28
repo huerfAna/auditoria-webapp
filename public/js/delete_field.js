@@ -6,10 +6,10 @@ $(document).on('click', 'a.btn-delete', function(e) {
         event.preventDefault();
         $.ajax({            
             url:   url,            
-            type:  'delete',   
+            type:  'DELETE',   
             data: { _token: token},  
             success: function(respuesta){
-                window.location.href = "infraccion";
+                window.location.href = url;
             },                      
             error:function(xhr,err){ 
                 alert('Elemento no puede ser eliminado');

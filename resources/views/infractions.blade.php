@@ -31,5 +31,5 @@
 @endsection
 @section('scripts')
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="{{ asset('js/infraction.js') }}"></script>
+<script src="{{ asset('js/delete_field.js') }}"></script>
 @endsection  
